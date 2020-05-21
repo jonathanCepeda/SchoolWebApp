@@ -2,15 +2,15 @@ const mongoose = require( 'mongoose' );
 
 /*
 Group{
-    groupID,
+    groupID, (example: 1A_2020)
     professorID,
     listOfStudents{
-    studentID
+        studentID
     },
-    HomeworkList{
+    HomeworkList{  (can add "group" to homework model and avoid this)
     Homework
     },
-    ResourcesList{
+    ResourcesList{ (can add "group" to resources model and avoid this)
     Resources
     },
     Subjects{
@@ -18,3 +18,18 @@ Group{
     }
 }
 */
+
+const groupsSchema =mongoose.Schema({
+    groupID : {
+        type : String,
+        required : true,
+        unique : true
+    },
+    professorID: String,
+    studentList : [{
+        studentID : String
+    }],
+    subjectList : [{
+        subject : String
+    }]
+});

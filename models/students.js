@@ -1,35 +1,47 @@
 const mongoose = require( 'mongoose' );
 
-
 /*
 Student{
     ID,
-    Type, (Student, Parent, Professor, Principal)
-    Username,
-    Password,
+    Name,
     Group,
     Grades{
-    gradeSubjectN
+        grade,
+        SubjectN
     },
     Attendance
+    },
+    contact:{
+        name,
+        phone,
+        address
     }
 */
 
 /* Your code goes here */
 const studentsSchema =mongoose.Schema({
-	name : {
-		type : String,
-		required : true
-	},
-	num_players : {
-		type : Number,
-		required : true
-	},
-	id : {
-		type : Number,
-		required : true,
-		unique : true
-	}
+    studentID : {
+        type: String,
+        required: true
+    },
+    studentName : {
+        type: String,
+        required: true
+    },
+    studentGroup : {
+        type: String,
+        required: true
+    },
+    grades: [{
+        subject: String, 
+        grade : Number
+    }],
+    attendance: Number,
+    contactInfo : {
+        name: String,
+        phone: String,
+        address: String
+    }
 });
 
 const studentsCollection = mongoose.model('students', studentsSchema);
