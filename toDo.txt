@@ -72,3 +72,6 @@ Additional:
     move to next year
         save group and year 
         save grades for the user history
+    external way to add or remove users within the application 
+        but in a secret page with authentication stored in the 
+        environment variables of heroku

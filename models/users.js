@@ -33,5 +33,8 @@ let userSchema = mongoose.Schema({
 	studentID : {
         type: String,
         required : true
-    }
+    },
+    tokens :  [{
+        token : String
+    }]
 });

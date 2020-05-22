@@ -18,7 +18,6 @@ Student{
     }
 */
 
-/* Your code goes here */
 const studentsSchema =mongoose.Schema({
     studentID : {
         type: String,

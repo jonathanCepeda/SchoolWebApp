@@ -28,9 +28,10 @@ const homeworksSchema =mongoose.Schema({
     text: String,
     imageURL: String,
     subject: String,
+    deliveryDate: String,
     homeworkDelivery : [{
         studentID : String,
         homeworkURL : String,
-        grade : Number
+        grade : Number,
     }]
 });
