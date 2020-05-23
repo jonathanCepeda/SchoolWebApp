@@ -1,6 +1,5 @@
 const mongoose = require( 'mongoose' );
 
-
 /*
 user{
     ID,
@@ -34,7 +33,10 @@ let userSchema = mongoose.Schema({
         type: String,
         required : true
     },
+    theme : String,
     tokens :  [{
         token : String
     }]
 });
+
+module.exports = mongoose.model('Users', usersSchema);

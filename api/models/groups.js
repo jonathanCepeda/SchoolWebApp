@@ -33,3 +33,5 @@ const groupsSchema =mongoose.Schema({
         subject : String
     }]
 });
+
+module.exports = mongoose.model('Groups', groupsSchema);

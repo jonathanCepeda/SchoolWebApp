@@ -1,77 +1,79 @@
+DONE
+    Back-end:
+        models:
+            students
+            users
+            groups
+            homework
+            announcements/resources (this could be one)
+
 TO DO
-
-Back-end:
-    models:
-        students
-        users
-        groups
-        homework
-        announcements/resources (this could be one)
-    endpoints:
-        students
-        users
-        groups
-        homework
-        announcements/resources 
-    check with postman:
-        students
-        users
-        groups
-        homework
-        announcements/resources (this could be one)
-    routs
-    cors is this needed?
-    authentication
-        bycript
-        jwt
-    login
-    logout
-
-front end:
-
-    HTML:
+    Back-end:
+        endpoints:
+            students
+            users
+            groups
+            homework
+            announcements/resources 
+        check with postman:
+            students
+            users
+            groups
+            homework
+            announcements/resources (this could be one)
+        routs
+        cors is this needed?
+        authentication
+            bycript
+            jwt
         login
-        home (announcements)
-        group
-        homework
-        resources / video lectures
-        students
-        assign groups
+        logout
 
-    CSS
+    front end:
 
-    JS:
-        fetch calls:
-            Login
-            Log out.
-            Change password
-            Add a new users (by the principal).
-            Create announcements
-            See announcements
-            Create homework
-            See homework
-            Grade homework
-            Add resources
-            See resources
-            Take attendance
-            Change grades
-            See student list
-            Add students
-            Remove student (delete users first)
-            Edit students
-            Assign professors to groups
-        forms
-        display tables
-        search students
-        search homework
-        show errors
+        HTML:
+            login
+            home (announcements)
+            group
+            homework
+            resources / video lectures
+            students
+            assign groups
 
-Additional:
-    Dark mode
-    quiz
-    move to next year
-        save group and year 
-        save grades for the user history
-    external way to add or remove users within the application 
-        but in a secret page with authentication stored in the 
-        environment variables of heroku
+        CSS
+
+        JS:
+            fetch calls:
+                Login
+                Log out.
+                Change password
+                Add a new users (by the principal).
+                Create announcements
+                See announcements
+                Create homework
+                See homework
+                Grade homework
+                Add resources
+                See resources
+                Take attendance
+                Change grades
+                See student list
+                Add students
+                Remove student (delete users first)
+                Edit students
+                Assign professors to groups
+            forms
+            display tables
+            search students
+            search homework
+            show errors
+
+    Additional:
+        Dark mode (remove css file and add script to add them)
+        quiz
+        move to next year
+            save group and year 
+            save grades for the user history
+        external way to add or remove users within the application 
+            but in a secret page with authentication stored in the 
+            environment variables of heroku

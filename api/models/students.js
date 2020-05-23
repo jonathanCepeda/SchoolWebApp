@@ -43,22 +43,4 @@ const studentsSchema =mongoose.Schema({
     }
 });
 
-const studentsCollection = mongoose.model('students', studentsSchema);
-
-const Students = {
-	createStudent : function( newStudent ){
-		return studentsCollection
-				.create(newStudent)
-				.then(createdStudent =>{
-					return createdStudent;
-				})
-				.catch( err => {
-					throw new Error(err);
-				});
-	}
-
-}
-
-module.exports = {
-    Students
-};
+module.exports = mongoose.model('Students', studentsSchema);

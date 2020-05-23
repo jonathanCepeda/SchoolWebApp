@@ -12,7 +12,7 @@ Announcements{
 */
 
 
-const announcementSchema =mongoose.Schema({
+const contentsSchema =mongoose.Schema({
     announcementID : {
         type : String,
         required : true,
@@ -24,3 +24,5 @@ const announcementSchema =mongoose.Schema({
     imageURL : String,
     videoURL : String
 });
+
+module.exports = mongoose.model('Contents', contentsSchema);

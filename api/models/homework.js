@@ -35,3 +35,5 @@ const homeworksSchema =mongoose.Schema({
         grade : Number,
     }]
 });
+
+module.exports = mongoose.model('Homeworks', homeworksSchema);
