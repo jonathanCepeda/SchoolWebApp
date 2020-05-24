@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const Users = require("../models/homework");
-
+const { Homework } = require("../models/homework");
 
 exports.getAllHw = (req, res, next) => {
 	

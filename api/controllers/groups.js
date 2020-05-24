@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Users = require("../models/groups");
+const { Groups } = require("../models/groups");
 
 
 exports.getGroup = (req, res, next) => {

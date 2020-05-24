@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const Users = require("../models/students");
-
+const { Users } = require("../models/students");
 
 exports.getStudents = (req, res, next) => {
 	

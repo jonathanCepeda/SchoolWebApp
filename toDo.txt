@@ -1,7 +1,7 @@
 DONE
     Back-end:
         models:
-            students
+            students (debería tener la lista de usuarios ?)
             users
             groups
             homework

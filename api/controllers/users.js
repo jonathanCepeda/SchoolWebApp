@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const Users = require("../models/users");
-
+const { Users } = require("../models/users");
 
 exports.login = (req, res, next) => {
 	
@@ -25,6 +24,3 @@ exports.editUser = (req, res, next) => {
 exports.deleteUser = (req, res, next) => {
 
 }
-
-
-
