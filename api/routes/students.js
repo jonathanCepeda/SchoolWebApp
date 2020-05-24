@@ -5,9 +5,9 @@ const apiStudents = require('../controllers/students')
 const auth = require('../middleware/validateToken');
 
 router.get( '/', auth, apiStudents.getStudents);
-router.get( '/:id', auth, apiStudents.getStudent);
+router.get( '/:studentID', auth, apiStudents.getStudent);
 router.post( '/', auth, apiStudents.addStudent);
-router.delete( '/:id', auth, apiStudents.deleteStudent);
-router.patch( '/:id', auth, apiStudents.editStudent);
+router.delete( '/:studentID', auth, apiStudents.deleteStudent);
+router.patch( '/:studentID', auth, apiStudents.editStudent);
 
 module.exports = router;

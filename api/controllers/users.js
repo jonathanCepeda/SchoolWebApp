@@ -115,15 +115,52 @@ exports.addUser = (req, res, next) => {
 		});
 }
 
+// DELETE http://localhost:8080/users/:id + body
+exports.deleteUser = (req, res, next) => {
+    console.log("Deleting user");
+
+    let userID = req.params.userID;
+
+    if( !userID ){
+        res.statusMessage = "The ID is missing in the parameters.";
+        return res.status(406).end();
+    }
+
+    Users.getOneByID(userID)
+        .then(user =>{
+            if(user.length === 0){
+                res.statusMessage = "User not found";
+                return res.status(404).end();
+            }
+            else{
+                Users.delete(userID)
+                    .then( result =>{
+                        return res.status(200).end();
+                    })
+                    .catch( err => {           
+                        res.statusMessage = "Something went wrong with the DB."
+                        return res.status(500).json({
+                            status: 500,
+                            message: "Something went wrong with the DB."
+                        });
+                    });
+            }
+        })
+        .catch( err => {
+            res.statusMessage = "Something went wrong with the DB."
+            return res.status(500).json({
+                status: 500,
+                message: "Something went wrong with the DB."
+            });
+        });
+}
+
 // PATCH http://localhost:8080/users/:id + body
 exports.editUser = (req, res, next) => {
     console.log("Editing user");
 
     let id = req.params.userID;
     let userID = req.body.userID;
-
-    console.log("params", req.params);
-    console.log("body", req.body);
 
     if ( !userID || !id ){
         res.statusMessage = "One of the IDs is missing.";
@@ -156,7 +193,6 @@ exports.editUser = (req, res, next) => {
         theme: theme,
         tokens: tokens
     };
-    console.log("before parch");
     Users.patch(updateUser)
     .then( update => {
         return res.status(200).json(update);
@@ -168,45 +204,4 @@ exports.editUser = (req, res, next) => {
             message: "Something went wrong with the DB."
         });
     });
-}
-
-// DELETE http://localhost:8080/users/:id + body
-exports.deleteUser = (req, res, next) => {
-    console.log("Deleting user");
-
-    let userID = req.params.userID;
-
-    if( !userID ){
-        res.statusMessage = "The ID is missing in the parameters.";
-        return res.status(406).end();
-    }
-
-    Users.getOneByID(userID)
-        .then(user =>{
-            if(user.length === 0){
-                console.log("=0", user)
-                res.statusMessage = "User not found";
-                return res.status(404).end();
-            }
-            else{
-                Users.delete(userID)
-                    .then( result =>{
-                        return res.status(200).end();
-                    })
-                    .catch( err => {           
-                        res.statusMessage = "Something went wrong with the DB."
-                        return res.status(500).json({
-                            status: 500,
-                            message: "Something went wrong with the DB."
-                        });
-                    });
-            }
-        })
-        .catch( err => {
-            res.statusMessage = "Something went wrong with the DB."
-            return res.status(500).json({
-                status: 500,
-                message: "Something went wrong with the DB."
-            });
-        });
 }

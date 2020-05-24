@@ -39,55 +39,56 @@ const Homework = {
             });
     },
 
-    getOne : function(userID){
+    getOne : function(homeworkID){
         return homeworkCollection
-            .find({ userID : userID })
-            .then( user => {
-                return user;
+            .find({ homeworkID : homeworkID })
+            .then( homework => {
+                return homework;
             })
             .catch( err => {
                 throw Error(err);
             });
     },
 
-    post : function(newUser){
+    post : function(newHomework){
         return homeworkCollection
-            .create(newUser)
-            .then( createdUser => {
-                return createdUser;
+            .create(newHomework)
+            .then( createdHomework => {
+                return createdHomework;
             })
             .catch( err => {
                 throw Error(err);
             });
     },
 
-    delete : function(userID){
+    delete : function(homeworkID){
         return homeworkCollection
-            .remove({ userID : userID })
-            .then( deletedUser => {
-                return deletedUser;
+            .remove({ homeworkID : homeworkID })
+            .then( deletedHomework => {
+                return deletedHomework;
             })
             .catch( err => {
                 throw Error(err);
             });
     },
 
-    patch : function(userID,username, userType, password, studentID, theme, tokens){
+    patch : function(updateHW){
         return homeworkCollection
             .updateOne({ 
-                userID : userID 
+                homeworkID : updateHW.homeworkID 
             }, {  
                 $set: {
-                    username: username,
-                    userType: userType,
-                    password: password,
-                    studentID: studentID,
-                    theme: theme,
-                    tokens: tokens
+                    groupID: updateHW.groupID,
+                    title: updateHW.title,
+                    text: updateHW.text,
+                    imageURL: updateHW.imageURL,
+                    subject: updateHW.subject,
+                    deliveryDate: updateHW.deliveryDate,
+                    homeworkDelivery: updateHW.homeworkDelivery
                 }
             })
-            .then( updatedUser => {
-                return updatedUser;
+            .then( updatedHw => {
+                return updatedHw;
             })
             .catch( err => {
                 throw Error(err);

@@ -8,30 +8,21 @@ DONE
             announcements/resources (this could be one)
         endpoints:
             users
+            students
+            groups
+            homework
+            content 
         check with postman:
             users
-                getOne
-                getAll
-                delete
-                patch
+            students
         routs
 
 TO DO
     Back-end:
-        endpoints:
-            students
+    check with postman:
             groups
             homework
-            announcements/resources 
-        check with postman:
-            students
-            users
-                login
-                logout
-            groups
-            homework
-            announcements/resources (this could be one)
-        
+            content 
         cors is this needed?
         authentication
             bycript

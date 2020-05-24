@@ -1,6 +1,6 @@
 const mongoose = require( 'mongoose' );
 
-const studentsSchema = mongoose.Schema({
+let studentsSchema = mongoose.Schema({
     studentID : {
         type: String,
         required: true
@@ -24,7 +24,7 @@ const studentsSchema = mongoose.Schema({
         address: String
     },
     users : [{
-        userID: Number
+        userID: String
     }]
 });
 
@@ -75,18 +75,18 @@ const Students = {
             });
     },
 
-    patch : function(studentID,studentName, groupID, grades, attendance, contactInfo, users){
+    patch : function(updatedStudent){
         return studentsCollection
             .updateOne({ 
-                studentID : studentID 
+                studentID : updatedStudent.studentID 
             }, {  
                 $set: {
-                    studentName: studentName,
-                    groupID: groupID,
-                    grades: grades,
-                    attendance: attendance,
-                    contactInfo: contactInfo,
-                    users: users
+                    studentName: updatedStudent.studentName,
+                    groupID: updatedStudent.groupID,
+                    grades: updatedStudent.grades,
+                    attendance: updatedStudent.attendance,
+                    contactInfo: updatedStudent.contactInfo,
+                    users: updatedStudent.users
                 }
             })
             .then( updatedStudent => {

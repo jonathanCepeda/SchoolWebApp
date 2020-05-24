@@ -60,17 +60,17 @@ const Contents = {
             });
     },
 
-    patch : function(contentID,targetGroup, title, text, imageURL, videoURL){
+    patch : function(updateContent){
         return contentsCollection
             .updateOne({ 
-                contentID : contentID 
+                contentID : updateContent.contentID 
             }, {  
                 $set: {
-                    targetGroup: targetGroup,
-                    title: title,
-                    text: text,
-                    imageURL: imageURL,
-                    videoURL: videoURL
+                    targetGroup: updateContent.targetGroup,
+                    title: updateContent.title,
+                    text: updateContent.text,
+                    imageURL: updateContent.imageURL,
+                    videoURL: updateContent.videoURL
                 }
             })
             .then( updatedContent => {

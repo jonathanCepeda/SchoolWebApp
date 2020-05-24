@@ -6,7 +6,7 @@ const auth = require('../middleware/validateToken');
 
 router.get( '/', auth, apiContent.getContent);
 router.post( '/', auth, apiContent.addContent);
-router.delete( '/:id', apiContent.deleteContent);
-router.patch( '/:id', apiContent.editContent);
+router.delete( '/:contentID', apiContent.deleteContent);
+router.patch( '/:contentID', apiContent.editContent);
 
 module.exports = router;

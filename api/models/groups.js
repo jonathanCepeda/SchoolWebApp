@@ -62,15 +62,15 @@ const Groups = {
             });
     },
 
-    patch : function(groupID, professorID, studentList, subjectList){
+    patch : function(updateGroup){
         return groupsCollection
             .updateOne({ 
-                groupID : groupID 
+                groupID : updateGroup.groupID 
             }, {  
                 $set: {
-                    professorID: professorID,
-                    studentList: studentList,
-                    subjectList: subjectList
+                    professorID: updateGroup.professorID,
+                    studentList: updateGroup.studentList,
+                    subjectList: updateGroup.subjectList
                 }
             })
             .then( updatedGroup => {
