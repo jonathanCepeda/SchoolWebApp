@@ -39,7 +39,18 @@ const Users = {
             });
     },
 
-    getOne : function(userID){
+    getOne : function(username){
+        return usersCollection
+            .find({ username : username })
+            .then( user => {
+                return user;
+            })
+            .catch( err => {
+                throw Error(err);
+            });
+    },
+
+    getOneByID : function(userID){
         return usersCollection
             .find({ userID : userID })
             .then( user => {
@@ -72,18 +83,18 @@ const Users = {
             });
     },
 
-    patch : function(userID,username, userType, password, studentID, theme, tokens){
+    patch : function(updateUser){
         return usersCollection
             .updateOne({ 
-                userID : userID 
+                userID : updateUser.userID 
             }, {  
                 $set: {
-                    username: username,
-                    userType: userType,
-                    password: password,
-                    studentID: studentID,
-                    theme: theme,
-                    tokens: tokens
+                    username: updateUser.username,
+                    userType: updateUser.userType,
+                    password: updateUser.password,
+                    studentID: updateUser.studentID,
+                    theme: updateUser.theme,
+                    tokens: updateUser.tokens
                 }
             })
             .then( updatedUser => {

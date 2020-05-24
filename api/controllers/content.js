@@ -7,7 +7,7 @@ exports.getContent = (req, res, next) => {
 }
 
 exports.addContent = (req, res, next) => {
-
+    
 }
 
 exports.deleteContent = (req, res, next) => {

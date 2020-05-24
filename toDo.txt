@@ -6,22 +6,32 @@ DONE
             groups
             homework
             announcements/resources (this could be one)
+        endpoints:
+            users
+        check with postman:
+            users
+                getOne
+                getAll
+                delete
+                patch
+        routs
 
 TO DO
     Back-end:
         endpoints:
             students
-            users
             groups
             homework
             announcements/resources 
         check with postman:
             students
             users
+                login
+                logout
             groups
             homework
             announcements/resources (this could be one)
-        routs
+        
         cors is this needed?
         authentication
             bycript

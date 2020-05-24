@@ -11,7 +11,7 @@ const { DATABASE_URL, PORT } = require( './config' );
 
 const app = express();
 app.use( morgan('dev') );
-//app.use(cors);
+app.use(jsonParser);
 
 /*    Routes   */
 
@@ -20,6 +20,12 @@ const studentRoutes = require("./api/routes/students");
 const groupRoutes = require("./api/routes/groups");
 const homeworkRoutes = require("./api/routes/homework");
 const contentRoutes = require("./api/routes/content");
+
+app.use("/users", userRoutes);
+app.use("/students", studentRoutes);
+app.use("/groups", groupRoutes);
+app.use("/homework", homeworkRoutes);
+app.use("/content", contentRoutes);
 
 /*    Connecting to the DB    */
 
