@@ -21,6 +21,8 @@ const groupRoutes = require("./api/routes/groups");
 const homeworkRoutes = require("./api/routes/homework");
 const contentRoutes = require("./api/routes/content");
 
+app.use(express.static("public"))
+
 app.use("/users", userRoutes);
 app.use("/students", studentRoutes);
 app.use("/groups", groupRoutes);
@@ -29,6 +31,7 @@ app.use("/content", contentRoutes);
 
 /*    Connecting to the DB    */
 
+// http://localhost:8080
 app.listen( PORT, () => {
     console.log( "This server is running" );
     new Promise( ( resolve, reject ) => {
